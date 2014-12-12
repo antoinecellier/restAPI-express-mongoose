@@ -36,7 +36,7 @@ var users = {
       if (err)
         res.send(err);
 
-        res.json({ message: 'User added' });
+        res.json('User added');
     });
   },
 

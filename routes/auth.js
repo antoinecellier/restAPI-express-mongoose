@@ -13,18 +13,19 @@ var auth = {
       res.status(401);
       res.json({
         "status": 401,
-        "message": "Invalid credentials"
+        "message": "Invalid credentials 1"
       });
       return;
     }
 
     // Fire a query to your DB and check if the credentials are valid
     auth.validate(username, password, function(user){
+
         if (!user) { // If authentication fails, we send a 401 back
           res.status(401);
           res.json({
             "status": 401,
-            "message": "Invalid credentials"
+            "message": "Invalid credentials 2"
           });
           return;
         }

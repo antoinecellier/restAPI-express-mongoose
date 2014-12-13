@@ -55,7 +55,11 @@ var auth = {
   validate: function(username, password, callback) {
 
     User.findOne({ 'email': username}, function(err, user){
+      if(err || user == null)
+        return callback(err);
+
       user.verifyPassword(password, function ( err, result ){
+        console.log(err);
         if(err)
           return callback(err);
         if(!result)

@@ -8,7 +8,7 @@ var course = require('./courses.js');
  * Routes that can be accessed by any one
  */
 router.post('/login', auth.login);
-router.post('/api/user/', user.create);
+router.post('/api/user', user.create);
 
 /*
  * Routes that can be accessed only by authenticated 

@@ -24,12 +24,13 @@ app.all('/*', function(req, res, next) {
 
 // HANDLED Mongoose AND Models
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://antoine:061191lkp@ds061360.mongolab.com:61360/heroku_app32245947'); // connect to our database
+mongoose.connect('mongodb://coach:coach@ds063630.mongolab.com:63630/coachapi'); // connect to our database
 
 // Auth Middleware - This will check if the token is valid
 // Only the requests that start with /api/v1/* will be checked for the token.
 // Any URL's that do not follow the below pattern should be avoided unless you 
 // are sure that authentication is not needed
+  
 app.all('/api/*', [require('./middlewares/validateRequest')]);
 
 app.all('/api/user/:email', [require('./middlewares/validateSimilarToken')]);

@@ -4,7 +4,7 @@ var validateUser = require('../routes/auth').validateUser;
 module.exports = function(req, res, next) {
 
   //Expect for add User
-  if(req.path == '/api/user/')
+  if(req.path == '/api/user')
     return next();
 
   // When performing a cross domain request, you will recieve

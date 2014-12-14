@@ -42,7 +42,6 @@ var auth = {
               function(err, numAffected){
                 if(err)
                   res.json({ message: 'Erreur d\'authentification'});
-                console.log(numAffected);
           });
           userToken.user.token = userToken.token;
           res.json(userToken);
@@ -59,7 +58,6 @@ var auth = {
         return callback(err);
 
       user.verifyPassword(password, function ( err, result ){
-        console.log(err);
         if(err)
           return callback(err);
         if(!result)

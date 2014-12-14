@@ -14,7 +14,7 @@ var users = {
 
   getOne: function(req, res) {
     var email = req.params.email;
-    User.find({ 'email': email },function(err, user){
+    User.findOne({ 'email': email },function(err, user){
       if (err)
         res.send(err);
 

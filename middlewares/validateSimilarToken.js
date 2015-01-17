@@ -30,8 +30,7 @@ module.exports = function(req, res, next) {
 
       // Authorize the user to see if s/he can access our resources
       var email = req.params.email;
-      console.log(email);
-      console.log(token);
+
       // Verification si le token correpond au token de la page de l'Utilisateur
       User.findOne({ 'email': email, 'token': token }, function ( err, user ) {
         console.log(user);

@@ -15,27 +15,20 @@ var CourseSchema = new mongoose.Schema({
 	    },
 	    _id : false 
     }],
-    locationStart: {     
-    	latitude: { 
+    time: {     
+    	hours: { 
 	      type: Number, 
 	      required: true
 	    }, 
-	    longitude: { 
+	    minutes: { 
 	      type: Number, 
 	      required: true 
-	    } 
-	},
-    locationEnd: {     	
-    	latitude: { 
-	      type: Number, 
-	      required: true
-	    }, 
-	    longitude: { 
+	    },
+	    seconds: { 
 	      type: Number, 
 	      required: true 
 	    }  
 	},
-
     created_by: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

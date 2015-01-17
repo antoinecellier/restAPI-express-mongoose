@@ -27,11 +27,11 @@ var courses = {
   create: function(req, res) {
     User.findOne({ email: req.params.email }).exec(function(err, user) {
       var course = new Course({
-        pathCourse: [ { latitude: 48.25, longitude: 48.65 },{ latitude: 48.25, longitude: 48.65 } ],
-        locationStart: { latitude: 48.25, longitude: 48.65 },
-        locationEnd: { latitude: 48.25, longitude: 48.65 },
+        pathCourse: req.body.path,
+        time : req.body.time,
         created_by: user._id
       });
+
       course.save(function(err, course){
           var conditions = { _id: course.created_by },
               update = { courses: { _id: course._id } },

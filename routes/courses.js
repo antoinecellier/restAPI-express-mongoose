@@ -18,7 +18,7 @@ var courses = {
     Course.find({ '_id': req.params.courseId },function(err, course){
       if (err)
         res.send(err);
-
+            
       res.json( course );
     })
   },

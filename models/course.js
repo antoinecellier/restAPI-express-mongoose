@@ -29,6 +29,10 @@ var CourseSchema = new mongoose.Schema({
 	      required: true 
 	    }  
 	},
+	dateTime: {
+		type: Number,
+		required: true
+	},
     created_by: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

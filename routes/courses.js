@@ -13,26 +13,27 @@ var courses = {
         res.json(users);
       })
   },
-/*
+
   getOne: function(req, res) {
-    var email = req.params.email;
-    User.find({ 'email': email },function(err, user){
+    Course.find({ '_id': req.params.courseId },function(err, course){
       if (err)
         res.send(err);
 
-      res.json({ user: user });
+      res.json( course );
     })
   },
-*/
+  
   create: function(req, res) {
     User.findOne({ email: req.params.email }).exec(function(err, user) {
       var course = new Course({
         pathCourse: req.body.path,
         time : req.body.time,
+        dateTime: req.body.dateTime,
         created_by: user._id
       });
 
       course.save(function(err, course){
+          console.log(err);
           var conditions = { _id: course.created_by },
               update = { courses: { _id: course._id } },
               options = { multi: false };

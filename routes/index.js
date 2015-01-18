@@ -25,6 +25,7 @@ router.delete('/api/user/:email', user.delete);
 	/*
 	 * Routes for courses's user
 	 */
+	router.get('/api/course/:courseId', course.getOne); 
 	router.get('/api/user/:email/courses', course.getAll);
 	router.post('/api/user/:email/course', course.create);
 

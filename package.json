@@ -2,6 +2,9 @@
   "name": "myRESTfulApp",
   "version": "0.1.0",
   "description": "myRESTfulApp",
+  "engines": {
+    "node": "0.10.x"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

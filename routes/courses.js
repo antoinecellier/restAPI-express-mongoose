@@ -25,6 +25,8 @@ var courses = {
   
   create: function(req, res) {
     User.findOne({ email: req.params.email }).exec(function(err, user) {
+
+      console.log(req.body);
       var course = new Course({
         pathCourse: req.body.path,
         time : req.body.time,

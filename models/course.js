@@ -5,11 +5,11 @@ var Course = require('../models/user');
 
 var CourseSchema = new mongoose.Schema({
     pathCourse: [{     
-    	latitude: { 
+    	lat: { 
 	      type: Number, 
 	      required: true
 	    }, 
-	    longitude: { 
+	    lng: { 
 	      type: Number, 
 	      required: true 
 	    },

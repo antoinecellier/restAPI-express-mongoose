@@ -14,6 +14,14 @@ var courses = {
       })
   },
 
+  getCourses: function(req, res) {
+    Course.find().exec(function(errn courses){
+      if(err) res.json({ message: 'No courses'});
+
+      res.json(courses);
+    });
+  },
+
   getOne: function(req, res) {
     Course.find({ '_id': req.params.courseId },function(err, course){
       if (err)

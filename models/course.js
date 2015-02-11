@@ -29,6 +29,10 @@ var CourseSchema = new mongoose.Schema({
 	      required: true 
 	    }  
 	},
+	city: {
+		type: String,
+		required: false
+	}
 	dateTime: {
 		type: Number,
 		required: true

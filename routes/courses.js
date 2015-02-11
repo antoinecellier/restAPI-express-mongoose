@@ -15,7 +15,7 @@ var courses = {
   },
 
   getCourses: function(req, res) {
-    Course.find().exec(function(errn courses){
+    Course.find().exec(function(err, courses){
       if(err) res.json({ message: 'No courses'});
 
       res.json(courses);

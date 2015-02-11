@@ -39,6 +39,7 @@ var courses = {
         pathCourse: req.body.path,
         time : req.body.time,
         dateTime: req.body.dateTime,
+        city: req.body.city,
         created_by: user._id
       });
 

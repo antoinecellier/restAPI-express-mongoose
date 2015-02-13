@@ -23,7 +23,10 @@ var courses = {
   },
 
   getOne: function(req, res) {
-    Course.find({ '_id': req.params.courseId },function(err, course){
+    Course.find({ '_id': req.params.courseId })
+                .populate('user')
+                .exec(
+      function(err, course){
       if (err)
         res.send(err);
             
@@ -33,24 +36,21 @@ var courses = {
   
   create: function(req, res) {
     User.findOne({ email: req.params.email }).exec(function(err, user) {
-
-      console.log(req.body);
       var course = new Course({
         pathCourse: req.body.path,
         time : req.body.time,
         dateTime: req.body.dateTime,
         city: req.body.city,
+        user : user._id,
         created_by: user._id
       });
 
       course.save(function(err, course){
-          console.log(err);
           var conditions = { _id: course.created_by },
               update = { courses: { _id: course._id } },
               options = { multi: false };
             
           User.update(conditions, { $push: update }, options, function(err, numAffected){
-                      console.log(err);
               if(err)
                 res.json({ message: 'Erreur d\'authentification'});
             res.json({ message: 'Course and location start added'}) 

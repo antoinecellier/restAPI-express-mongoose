@@ -33,7 +33,6 @@ module.exports = function(req, res, next) {
 
       // Verification si le token correpond au token de la page de l'Utilisateur
       User.findOne({ 'email': email, 'token': token }, function ( err, user ) {
-        console.log(user);
         if (user) {
           next(); // To move to next middleware
         } else {

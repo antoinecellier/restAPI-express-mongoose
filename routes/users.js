@@ -22,6 +22,16 @@ var users = {
     })
   },
 
+  getOneById: function(req, res) {
+    var id = req.params.id;
+    User.findOne({ '_id': id },function(err, user){
+      if (err)
+        res.send(err);
+
+      res.json({ user: user });
+    })
+  },
+
   create: function(req, res) {
     var user = new User({
       email: req.body.email,

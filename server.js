@@ -4,6 +4,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var app = express();
+app.set('port', process.env.PORT || 3000);
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,13 +48,15 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// Start the server
-// app.set('port', process.env.PORT || 3000);
-
-// var server = app.listen(app.get('port'), function() {
-//   console.log('Express server listening on port ' + server.address().port);
-// });
-
-app.listen(process.env.PORT || 3000, function(){
+console.log("uoooooooooooooooo");
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+
+io.on('connection', function (socket) {
+  console.log("connection activated");
+  socket.on('updateConversation', function(){
+    console.log()
+    io.sockets.emit('getNewMessages');
+  });
 });

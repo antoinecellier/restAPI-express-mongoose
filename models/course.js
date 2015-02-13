@@ -37,6 +37,10 @@ var CourseSchema = new mongoose.Schema({
 		type: Number,
 		required: true
 	},
+	user      :  {
+        type: Schema.Types.ObjectId, 
+        ref: 'User'
+    },
     created_by: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

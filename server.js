@@ -4,7 +4,8 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var app = express();
-app.set('port', process.env.PORT || 3000);
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
@@ -49,7 +50,7 @@ app.use(function(req, res, next) {
 });
 
 console.log("uoooooooooooooooo");
-server.listen(app.get('port'), function(){
+server.listen(app.get('port'), ipaddress, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
